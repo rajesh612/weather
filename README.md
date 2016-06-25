@@ -19,10 +19,10 @@ To insert, update, delete and fetch Weather Details Using Restful WebServices.
 ## Required MySQL DB Tables
 	Create a schema using MYSQL WorkBench.
 	Create a Table weather with Columns 
-- id int(11) AI,PK
-- cityname varchar(45)
-- state varchar(45)
-- zipcode int(11)
+	id int(11) AI,PK
+	cityname varchar(45)
+	state varchar(45)
+	zipcode int(11)
 
 ## Application
 #### WeatherApplication is a Spring Boot Application represented by @SpringBootApplication annotation. It is used to run the weather application.
