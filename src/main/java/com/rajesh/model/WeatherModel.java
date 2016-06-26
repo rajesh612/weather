@@ -1,15 +1,21 @@
 package com.rajesh.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
 * @author Rajesh Kumar
-* @version 1.0, June 15,2016
+* @version 1.1, June 25,2016
 * @since 1.0
 */
 
@@ -31,6 +37,16 @@ public class WeatherModel {
 	@Column(name = "ZIPCODE")
 	private int zipcode;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "weatherModel", cascade = CascadeType.ALL)
+	private Set<WeatherDataModel> weatherData = new HashSet<WeatherDataModel>(0);
+	
+	
+	public Set<WeatherDataModel> getWeatherData() {
+		return weatherData;
+	}
+	public void setWeatherData(Set<WeatherDataModel> weatherData) {
+		this.weatherData = weatherData;
+	}
 	public int getId() {
 		return id;
 	}

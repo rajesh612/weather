@@ -1,6 +1,8 @@
 package com.rajesh.controller;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rajesh.model.WeatherModel;
+import com.rajesh.model.WeatherDataModel;
+
 import com.rajesh.service.WeatherService;
 
 /**
 *
 * @author Rajesh Kumar
-* @version 1.0, June 15,2016
+* @version 1.1, June 25,2016
 * @since 1.0
 */
 
@@ -56,6 +60,13 @@ public class WeatherController {
 	@RequestMapping(value="/insertWeather", method= RequestMethod.POST)
 	public WeatherModel insertWeather(@RequestBody WeatherModel weather){
 		log.info("Invoking Weather Service to Save City::{}",weather.getCityName());
+		
+		Set<WeatherDataModel> dataModel = new HashSet<WeatherDataModel>();
+		for(WeatherDataModel w : weather.getWeatherData()){
+			w.setWeatherModel(weather);
+			dataModel.add(w);
+		}
+		
 		return weatherService.insertWeather(weather);	
 	}
 
@@ -70,6 +81,15 @@ public class WeatherController {
 	@RequestMapping(value="/updateWeather", method= RequestMethod.PUT)
 	public WeatherModel updateWeather(@RequestBody WeatherModel weather){
 		log.info("Invoking Weather Service to Update City::{}",weather.getCityName());
+		
+		Set<WeatherDataModel> dataModel = new HashSet<WeatherDataModel>();
+		for(WeatherDataModel w : weather.getWeatherData()){
+			w.setWeatherModel(weather);
+			dataModel.add(w);
+		}
+		
+		weather.setWeatherData(dataModel);
+		
 		return weatherService.updateWeather(weather);
 		
 	}

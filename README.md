@@ -16,24 +16,33 @@ To insert, update, delete and fetch Weather Details Using Restful WebServices.
 ###### mysql-connector-java
 ###### spring-boot-starter-data-rest
 ###### scala-library
-## Required MySQL DB Tables
-	Create a schema using MYSQL WorkBench.
-	Create a Table weather with Columns 
-	id int(11) AI,PK
-	cityname varchar(45)
-	state varchar(45)
-	zipcode int(11)
 
+## Required MySQL DB Tables
+#### Create a schema using MYSQL WorkBench.
+#### Create a Table weather with Columns 
+###### id int(11) AI,PK
+###### cityname varchar(45)
+###### state varchar(45)
+###### zipcode int(11)
+
+#### Create another Table weatherdata with Columns
+###### weatherid int(11) AI PK 
+###### mintemp int(11) 
+###### maxtemp int(11) 
+###### humidity varchar(45) 
+###### wind varchar(45) 
+###### id int(11) FK
+	
 ## Application
 #### WeatherApplication is a Spring Boot Application represented by @SpringBootApplication annotation. It is used to run the weather application.
 
 ## Controller 
-###### WeatherController is represented by @RestController Annotation. It will use service methods to insert, update, delete and fetch weather details. Service Objects are used as Dependency Injection with @Autowired annotation.Controller will return data to client(postman).
+#### WeatherController is represented by @RestController Annotation. It will use service methods to insert, update, delete and fetch weather details. Service Objects are used as Dependency Injection with @Autowired annotation.Controller will return data to client(postman).
 
 ## Service
-###### WeatherService is represented by @Service annotation. Service will invoke Weather Repository methods and return the data to Controller. DAO objects are used as Dependency Injection with @Autowired annotation.
+#### WeatherService is represented by @Service annotation. Service will invoke Weather Repository methods and return the data to Controller. DAO objects are used as Dependency Injection with @Autowired annotation.
 
 ## Repository
-###### DAO is recognized using @Repository annotation. DAO class will use EntityManager methods and WeatherModel Objects to perform various CRUD operations.
+#### DAO is recognized using @Repository annotation. DAO class will use EntityManager methods and WeatherModel Objects to perform various CRUD operations.
  
 

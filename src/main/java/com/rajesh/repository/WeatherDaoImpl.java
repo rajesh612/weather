@@ -75,8 +75,12 @@ public class WeatherDaoImpl implements WeatherDao {
 		log.info("weather data updated using entity for {}",weather.getCityName());
 		WeatherModel weatherResult = entityManager.find(WeatherModel.class, weather.getId());
 		weatherResult.setCityName(weather.getCityName());
+		weatherResult.setState(weather.getState());
 		weatherResult.setZipcode(weather.getZipcode());
-		return entityManager.merge(weatherResult);
+		weatherResult.setWeatherData(weather.getWeatherData());
+		entityManager.merge(weatherResult);
+		entityManager.flush();
+		return weatherResult;
 	}
 
 	/*

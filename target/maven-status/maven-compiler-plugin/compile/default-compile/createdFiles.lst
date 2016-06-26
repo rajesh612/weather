@@ -4,3 +4,4 @@ com\rajesh\service\WeatherService.class
 com\rajesh\repository\WeatherDaoImpl.class
 com\rajesh\model\WeatherModel.class
 com\rajesh\WeatherApplication.class
+com\rajesh\model\WeatherDataModel.class
