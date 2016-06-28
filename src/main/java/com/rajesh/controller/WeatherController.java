@@ -21,7 +21,7 @@ import com.rajesh.service.WeatherService;
 /**
 *
 * @author Rajesh Kumar
-* @version 1.1, June 25,2016
+* @version 1.0, June 15,2016
 * @since 1.0
 */
 
@@ -66,6 +66,8 @@ public class WeatherController {
 			w.setWeatherModel(weather);
 			dataModel.add(w);
 		}
+		
+		//weather.setWeatherData(dataModel);
 		
 		return weatherService.insertWeather(weather);	
 	}

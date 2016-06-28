@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 /**
 * @author Rajesh Kumar
-* @version 1.1, June 25,2016
+* @version 1.0, June 15,2016
 * @since 1.0
 */
 
